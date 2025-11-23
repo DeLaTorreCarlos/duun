@@ -1,0 +1,133 @@
+.shows-page {
+  min-height: 100vh;
+  padding-top: 120px;
+  padding-bottom: 4rem;
+}
+
+.page-hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.page-hero .lead {
+  font-family: var(--font-body);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.events-list {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.event-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  background: var(--color-gray-dark);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.event-card:hover {
+  border-color: var(--color-teal);
+  transform: translateX(10px);
+}
+
+.event-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  padding: 1rem;
+  background: var(--color-teal);
+  color: var(--color-black);
+  border-radius: 4px;
+}
+
+.event-date .day {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.event-date .month {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+.event-info h3 {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.event-info .venue {
+  font-size: 1rem;
+  color: var(--color-teal);
+  margin-bottom: 0.5rem;
+}
+
+.event-info .description {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.coming-soon {
+  text-align: center;
+  padding: 4rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 4rem;
+}
+
+.coming-soon h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.coming-soon p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+  .shows-page {
+    padding-top: 100px;
+  }
+  
+  .event-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .event-date {
+    justify-self: center;
+  }
+  
+  .event-action {
+    justify-self: center;
+  }
+}

@@ -1,0 +1,147 @@
+/* Import fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap'); /* Using Roboto Black as BIGGER DISPLAY alternative */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'); /* Using Inter as TT NORMS PRO alternative */
+
+/* CSS Variables for Design System */
+:root {
+  /* Colors from identity manual */
+  --color-teal: #2A9D8F;
+  --color-yellow: #E9A520;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-gray-dark: #1a1a1a;
+  --color-gray-medium: #333333;
+  --color-gray-light: #f5f5f5;
+  
+  /* Typography */
+  --font-display: 'Roboto', sans-serif; /* BIGGER DISPLAY alternative */
+  --font-body: 'Inter', sans-serif; /* TT NORMS PRO alternative */
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--color-black);
+  color: var(--color-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography System */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 8rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 5rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  font-weight: 400;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Links */
+a {
+  color: var(--color-white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-teal);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--color-white);
+  background: transparent;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+.btn-primary {
+  background: var(--color-teal);
+  border-color: var(--color-teal);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+}
+
+/* Container */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Section padding */
+section {
+  padding: var(--spacing-xl) 0;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.text-teal {
+  color: var(--color-teal);
+}
+
+.text-yellow {
+  color: var(--color-yellow);
+}
+
+.bg-dark {
+  background: var(--color-gray-dark);
+}
+
+  

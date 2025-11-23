@@ -1,0 +1,91 @@
+.about-page {
+  min-height: 100vh;
+  padding-top: 120px;
+  padding-bottom: 4rem;
+}
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.about-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.about-hero .lead {
+  font-family: var(--font-body);
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  color: var(--color-teal);
+  font-weight: 600;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 4rem;
+}
+
+.content-block {
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.content-block:last-child {
+  border-bottom: none;
+}
+
+.content-block h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.content-block p {
+  font-family: var(--font-body);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.content-block.highlight {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.content-block.highlight h2 {
+  color: var(--color-teal);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  margin-bottom: 1rem;
+}
+
+.content-block.highlight p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .about-page {
+    padding-top: 100px;
+  }
+  
+  .about-content {
+    gap: 3rem;
+  }
+  
+  .content-block {
+    padding: 2rem 0;
+  }
+}
