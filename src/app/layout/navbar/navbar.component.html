@@ -1,17 +1,25 @@
 <nav class="navbar">
   <div class="navbar-container">
     <div class="logo">
-      <a routerLink="/">
+      <a routerLink="/" (click)="closeMenu()">
         <img src="favicon.png" alt="DUUN" class="logo-img">
       </a>
     </div>
     
-    <ul class="nav-links">
-      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-      <li><a routerLink="/about" routerLinkActive="active">Nosotros</a></li>
-      <li><a routerLink="/music" routerLinkActive="active">Sets</a></li>
-      <li><a routerLink="/shows" routerLinkActive="active">Eventos</a></li>
-      <li><a routerLink="/contact" routerLinkActive="active">Contacto</a></li>
+    <!-- Hamburger Menu Button -->
+    <button class="hamburger" [class.active]="menuOpen" (click)="toggleMenu()" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <!-- Navigation Links -->
+    <ul class="nav-links" [class.active]="menuOpen">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">Nosotros</a></li>
+      <li><a routerLink="/music" routerLinkActive="active" (click)="closeMenu()">Sets</a></li>
+      <li><a routerLink="/shows" routerLinkActive="active" (click)="closeMenu()">Eventos</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contacto</a></li>
     </ul>
   </div>
 </nav>

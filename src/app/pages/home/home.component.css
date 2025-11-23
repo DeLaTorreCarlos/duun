@@ -10,7 +10,8 @@
   margin-top: 80px; /* Account for fixed navbar */
 }
 
-.model-background {
+.model-background,
+.video-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +19,8 @@
   height: 100vh;
   z-index: 0;
   opacity: 0.3;
-  pointer-events: none; /* Disable interaction with the 3D model */
+  pointer-events: none;
+  object-fit: cover;
 }
 
 .hero-content {
