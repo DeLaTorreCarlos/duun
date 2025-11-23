@@ -35,34 +35,75 @@
 /* Hamburger Menu */
 .hamburger {
   display: none;
-  flex-direction: column;
-  gap: 5px;
+  flex-direction: row;
+  gap: 4px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0.5rem;
   z-index: 10;
+  align-items: flex-end;
+  height: 20px;
+  position: relative;
 }
 
 .hamburger span {
   display: block;
-  width: 25px;
-  height: 3px;
+  width: 4px;
   background: var(--color-white);
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  border-radius: 2px;
+  animation: soundwave 0.8s ease-in-out infinite;
+}
+
+.hamburger span:nth-child(1) {
+  height: 12px;
+  animation-delay: 0s;
+}
+
+.hamburger span:nth-child(2) {
+  height: 18px;
+  animation-delay: 0.2s;
+}
+
+.hamburger span:nth-child(3) {
+  height: 8px;
+  animation-delay: 0.4s;
+}
+
+.hamburger.active {
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger.active span {
+  animation: none;
+  position: absolute;
+  width: 20px;
+  height: 2px;
   border-radius: 2px;
 }
 
 .hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
+  transform: rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
   opacity: 0;
+  width: 4px;
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
+  transform: rotate(-45deg);
+}
+
+@keyframes soundwave {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.5);
+  }
 }
 
 .nav-links {
