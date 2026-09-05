@@ -136,13 +136,16 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--color-teal);
+  background: var(--gradient-brand);
   transition: width 0.3s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--color-teal);
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .nav-links a:hover::after,

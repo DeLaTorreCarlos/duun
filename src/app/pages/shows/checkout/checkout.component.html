@@ -1,0 +1,53 @@
+<section class="checkout" *ngIf="event">
+  <div class="container">
+    <ng-container *ngIf="!purchased; else confirmation">
+      <a [routerLink]="['/shows', event.id]" class="back-link">← {{ event.title }}</a>
+      <h1>Checkout</h1>
+
+      <div class="checkout-grid">
+        <div class="event-summary">
+          <img [src]="event.photos[0]" [alt]="event.title" class="summary-photo">
+          <div class="summary-info">
+            <h2>{{ event.title }}</h2>
+            <p class="date">{{ event.day }} de {{ event.month | lowercase }}</p>
+            <p class="venue">{{ event.venue }}</p>
+            <a class="handle" [href]="event.instagramUrl" target="_blank" rel="noopener">&#64;{{ event.handle }}</a>
+          </div>
+        </div>
+
+        <form class="buyer-form" (ngSubmit)="buy()">
+          <h3>Tus datos</h3>
+          <label>
+            Nombre
+            <input type="text" name="name" [(ngModel)]="name" placeholder="Tu nombre" autocomplete="name">
+          </label>
+          <label>
+            Correo electrónico *
+            <input type="email" name="email" [(ngModel)]="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" required>
+          </label>
+          <p class="hint">A este correo te enviaremos el QR de tu entrada.</p>
+          <p class="error" *ngIf="error">{{ error }}</p>
+          <button type="submit" class="btn btn-primary btn-buy" [disabled]="!emailValid || loading">
+            {{ loading ? 'Conectando con Clip…' : 'Comprar entrada con Clip' }}
+          </button>
+          <p class="secure-note">Pago procesado de forma segura por Clip.</p>
+        </form>
+      </div>
+    </ng-container>
+
+    <ng-template #confirmation>
+      <div class="confirmation">
+        <div class="check">✓</div>
+        <h1>¡Gracias{{ name ? ', ' + name : '' }}!</h1>        <p class="confirm-text">
+          Tu pago fue procesado. Encontrarás el <strong>QR de tu entrada</strong> en tu correo en unos minutos.
+        </p>
+        <p class="confirm-email" *ngIf="email">{{ email }}</p>
+        <p class="confirm-help">
+          Cualquier aclaración escríbenos a
+          <a href="mailto:contacto@dunaclub.mx">contacto&#64;dunaclub.mx</a>
+        </p>
+        <a routerLink="/shows" class="btn">Volver a eventos</a>
+      </div>
+    </ng-template>
+  </div>
+</section>

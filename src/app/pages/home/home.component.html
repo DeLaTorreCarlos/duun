@@ -1,26 +1,37 @@
 <section class="hero">
-  <!-- Video Background -->
-  <video autoplay muted loop playsinline class="video-background">
-    <source src="assets/movie2.mp4" type="video/mp4">
-  </video>
+  <!-- Foto de fondo -->
+  <div class="hero-bg">
+    <img src="assets/hero.jpg" srcset="assets/hero-m.jpg 1500w, assets/hero.jpg 3400w" sizes="100vw" alt="Pasillo de DUNA CLUB en penumbra, con un tubo fluorescente naranja en el techo y luz cyan al fondo.">
+  </div>
+  <div class="hero-scrim" aria-hidden="true"></div>
 
   <!-- Hero Content -->
   <div class="hero-content">
     <div class="hero-text">
-      <h1 class="hero-title">DUUN</h1>
-      <p class="hero-subtitle">PARA TODO EL MUNDO</p>
+      <h1 class="hero-title">
+        <img class="hero-word" src="assets/wordmark.svg" alt="DUNA">
+      </h1>
+      <div class="hero-sub">
+        <span class="club">Club</span>
+        <span class="lema"><span class="lema-txt" #lemaTxt data-txt="Un espacio creado por y para clubbers.">Un espacio creado por y para clubbers.</span><span class="cur" #lemaCur hidden></span></span>
+      </div>
     </div>
+  </div>
+
+  <div class="hero-rail">
+    <div class="dir">C. 5 de Mayo 110 · Centro Histórico · Querétaro</div>
   </div>
 </section>
 
-<!-- About Section -->
-<section class="about-section">
+<!-- El Espacio Section -->
+<section class="espacio-section" #espacioSec>
   <div class="container">
-    <div class="about-grid">
-      <div class="about-text">
-        <h2>NO FOTOS<br>NO VIDEOS</h2>
-        <p>DUUN no es solo un club de música electrónica. Acá pasan cosas que impactan en la vida de los clubbers. Es como un cambio de energía, y eso es lo que quiero que suceda en nuestro club.</p>
-      </div>
+    <div class="eyebrow">El espacio</div>
+    <div class="galeria">
+      <figure class="marco"><span class="pan"><img src="assets/espacio/cabina.jpg" alt="Cabina de DUNA CLUB frente a la pista, con subgraves a nivel de piso y luz cyan."></span></figure>
+      <figure class="marco"><span class="pan"><img src="assets/espacio/escalera.jpg" alt="Escalera de acceso de DUNA CLUB, con un muro en tono terracota al fondo."></span></figure>
+      <figure class="marco"><span class="pan"><img src="assets/espacio/sala.jpg" alt="Sala lateral de DUNA CLUB con barra de concreto, banco corrido y estructura de acero."></span></figure>
+      <figure class="marco"><span class="pan"><img src="assets/espacio/pasillo.jpg" alt="Pasillo de DUNA CLUB con columnas de concreto, barandal de acero y luz fluorescente cyan."></span></figure>
     </div>
   </div>
 </section>
@@ -28,10 +39,43 @@
 <!-- Events Section -->
 <section class="events-section bg-dark">
   <div class="container">
-    <h2 class="section-title text-center">PRÓXIMOS EVENTOS</h2>
-    <div class="events-content text-center">
-      <p>Próximamente anunciaremos nuestra agenda de eventos.</p>
-      <a routerLink="/shows" class="btn btn-primary">Ver Eventos</a>
+    <h2 class="section-title text-center">EVENTOS</h2>
+    <div class="events-list">
+      <div class="event-card" *ngFor="let event of events">
+        <div class="event-main">
+          <div class="event-date">
+            <span class="day">{{ event.day }}</span>
+            <span class="month">{{ event.month }}</span>
+          </div>
+          <div class="event-info">
+            <h3>{{ event.title }}</h3>
+            <p class="venue">{{ event.venue }}</p>
+            <p class="description">
+              <ng-container *ngIf="event.handle; else plainDesc">
+                <a [href]="event.instagramUrl" target="_blank" rel="noopener" class="handle-link">&#64;{{ event.handle }}</a> en vivo.
+              </ng-container>
+              <ng-template #plainDesc>{{ event.description }}</ng-template>
+            </p>
+          </div>
+          <div class="event-action">
+            <button *ngIf="event.eventbriteId; else externalLink" type="button"
+                    class="btn btn-primary btn-tickets"
+                    [id]="'eb-trigger-' + event.eventbriteId"
+                    (click)="openTickets(event)">Comprar boletos</button>
+            <ng-template #externalLink>
+              <a [href]="event.ticketsUrl" target="_blank" rel="noopener" class="btn btn-primary btn-tickets">Comprar boletos</a>
+            </ng-template>
+          </div>
+        </div>
+        <div class="event-media" *ngIf="event.photos.length || event.videos?.length">
+          <figure class="media" *ngFor="let photo of event.photos">
+            <img [src]="photo" [alt]="event.title" loading="lazy">
+          </figure>
+          <figure class="media video" *ngFor="let video of event.videos">
+            <video [src]="video" controls playsinline preload="metadata"></video>
+          </figure>
+        </div>
+      </div>
     </div>
   </div>
 </section>

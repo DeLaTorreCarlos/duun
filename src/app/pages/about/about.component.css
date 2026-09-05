@@ -21,7 +21,10 @@
 .about-hero .lead {
   font-family: var(--font-body);
   font-size: clamp(1.25rem, 2.5vw, 2rem);
-  color: var(--color-teal);
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-weight: 600;
 }
 
@@ -64,7 +67,10 @@
 }
 
 .content-block.highlight h2 {
-  color: var(--color-teal);
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-size: clamp(2.5rem, 6vw, 5rem);
   margin-bottom: 1rem;
 }

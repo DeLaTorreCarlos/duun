@@ -1,0 +1,31 @@
+<section class="show-detail" *ngIf="event">
+  <div class="container">
+    <a routerLink="/shows" class="back-link">← Eventos</a>
+
+    <div class="detail-hero">
+      <div class="detail-date">
+        <span class="day">{{ event.day }}</span>
+        <span class="month">{{ event.month }}</span>
+      </div>
+      <div class="detail-heading">
+        <h1>{{ event.title }}</h1>
+        <p class="venue">{{ event.venue }}</p>
+        <a class="handle" *ngIf="event.handle" [href]="event.instagramUrl" target="_blank" rel="noopener">&#64;{{ event.handle }}</a>
+      </div>
+    </div>
+
+    <div class="detail-photos" *ngIf="event.photos.length || event.videos?.length">
+      <figure class="photo" *ngFor="let photo of event.photos; let i = index" [class.featured]="i === 0">
+        <img [src]="photo" [alt]="event.title" loading="lazy">
+      </figure>
+      <figure class="photo video" *ngFor="let video of event.videos">
+        <video [src]="video" controls playsinline preload="metadata"></video>
+      </figure>
+    </div>
+
+    <div class="detail-info">
+      <p class="description">{{ event.description }}</p>
+      <a [href]="event.ticketsUrl" target="_blank" rel="noopener" class="btn btn-primary btn-tickets">Comprar boletos</a>
+    </div>
+  </div>
+</section>

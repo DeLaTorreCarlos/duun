@@ -1,6 +1,7 @@
 /* Import fonts from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap'); /* Using Roboto Black as BIGGER DISPLAY alternative */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'); /* Using Inter as TT NORMS PRO alternative */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Courier+Prime:wght@400;700&display=swap'); /* Mono para lema y dirección del hero */
 
 /* CSS Variables for Design System */
 :root {
@@ -12,6 +13,8 @@
   --color-gray-dark: #1a1a1a;
   --color-gray-medium: #333333;
   --color-gray-light: #f5f5f5;
+  --color-orange: #FF7A18;
+  --gradient-brand: linear-gradient(135deg, var(--color-orange), var(--color-teal));
   
   /* Typography */
   --font-display: 'Roboto', sans-serif; /* BIGGER DISPLAY alternative */
@@ -80,7 +83,10 @@ a {
 }
 
 a:hover {
-  color: var(--color-teal);
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* Buttons */
@@ -104,7 +110,7 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--color-teal);
+  background: var(--gradient-brand);
   border-color: var(--color-teal);
   color: var(--color-white);
 }
@@ -133,7 +139,10 @@ section {
 }
 
 .text-teal {
-  color: var(--color-teal);
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .text-yellow {

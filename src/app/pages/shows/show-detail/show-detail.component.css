@@ -1,0 +1,195 @@
+.show-detail {
+  padding: 10rem 0 6rem;
+  min-height: 100vh;
+  background: var(--color-black);
+}
+
+.back-link {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 3rem;
+}
+
+.detail-hero {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.detail-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  padding: 1.25rem 1rem;
+  background: var(--gradient-brand);
+  color: var(--color-black);
+  border-radius: 4px;
+}
+
+.detail-date .day {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.detail-date .month {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+.detail-heading h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  margin-bottom: 0.5rem;
+}
+
+.detail-heading .venue {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.25rem;
+}
+
+.detail-heading .handle {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-weight: 600;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.detail-photos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+  grid-auto-flow: dense;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.photo {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Collage: la primera foto domina y algunas rompen la retícula */
+.photo.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.photo:nth-child(5n+3) {
+  grid-row: span 2;
+}
+
+.photo:nth-child(7n+4) {
+  grid-column: span 2;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: grayscale(35%);
+}
+
+.photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-brand);
+  opacity: 0;
+  mix-blend-mode: overlay;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.photo:hover img {
+  transform: scale(1.06);
+  filter: grayscale(0%);
+}
+
+.photo:hover::after {
+  opacity: 0.5;
+}
+
+/* Video en la galería */
+.photo.video {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.photo.video::after {
+  display: none;
+}
+
+.photo video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: var(--color-gray-dark);
+}
+
+@media (max-width: 900px) {
+  .detail-photos {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-photos {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 260px;
+  }
+
+  .photo.featured,
+  .photo.video,
+  .photo:nth-child(7n+4) {
+    grid-column: span 1;
+  }
+}
+
+.detail-info {
+  max-width: 700px;
+}
+
+.detail-info .description {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+
+.btn-tickets {
+  font-size: 1.125rem;
+}
+
+@media (max-width: 600px) {
+  .detail-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
