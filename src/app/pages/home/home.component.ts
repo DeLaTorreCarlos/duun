@@ -14,6 +14,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   @ViewChild('lemaCur') lemaCur!: ElementRef<HTMLElement>;
 
   events: ShowEvent[] = EVENTS;
+  ticketsModalUrl: string | null = null;
 
   private io?: IntersectionObserver;
   private onScroll?: () => void;
@@ -24,7 +25,11 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   ) {}
 
   openTickets(event: ShowEvent): void {
-    this.eventbrite.openTickets(event);
+    if (event.eventbriteId) {
+      this.eventbrite.openTickets(event);
+      return;
+    }
+    this.ticketsModalUrl = event.ticketsUrl;
   }
 
   ngAfterViewInit() {

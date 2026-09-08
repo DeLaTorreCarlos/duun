@@ -171,6 +171,20 @@
   }
 }
 
+.artist-section {
+  margin-bottom: 3rem;
+}
+
+.artist-name {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  margin-bottom: 1.5rem;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
 .detail-info {
   max-width: 700px;
 }

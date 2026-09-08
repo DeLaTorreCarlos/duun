@@ -9,6 +9,7 @@ import { EventbriteService } from './eventbrite.service';
 })
 export class ShowsComponent implements AfterViewInit {
   events: ShowEvent[] = EVENTS;
+  ticketsModalUrl: string | null = null;
 
   constructor(private eventbrite: EventbriteService) {}
 
@@ -17,6 +18,10 @@ export class ShowsComponent implements AfterViewInit {
   }
 
   openTickets(event: ShowEvent): void {
-    this.eventbrite.openTickets(event);
+    if (event.eventbriteId) {
+      this.eventbrite.openTickets(event);
+      return;
+    }
+    this.ticketsModalUrl = event.ticketsUrl;
   }
 }

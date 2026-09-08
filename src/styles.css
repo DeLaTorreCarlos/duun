@@ -17,8 +17,8 @@
   --gradient-brand: linear-gradient(135deg, var(--color-orange), var(--color-teal));
   
   /* Typography */
-  --font-display: 'Roboto', sans-serif; /* BIGGER DISPLAY alternative */
-  --font-body: 'Inter', sans-serif; /* TT NORMS PRO alternative */
+  --font-display: 'Space Mono', monospace;
+  --font-body: 'Space Mono', monospace;
   
   /* Spacing */
   --spacing-xs: 0.5rem;

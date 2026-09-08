@@ -5,42 +5,26 @@
       <p class="lead">Próximos shows y eventos</p>
     </div>
 
-    <div class="events-list">
-      <div class="event-card" *ngFor="let event of events">
-        <div class="event-main">
-          <div class="event-date">
-            <span class="day">{{ event.day }}</span>
-            <span class="month">{{ event.month }}</span>
-          </div>
-          <div class="event-info">
-            <h3>{{ event.title }}</h3>
-            <p class="venue">{{ event.venue }}</p>
-            <p class="description">
-              <ng-container *ngIf="event.handle; else plainDesc">
-                <a [href]="event.instagramUrl" target="_blank" rel="noopener" class="handle-link">&#64;{{ event.handle }}</a> en vivo.
-              </ng-container>
-              <ng-template #plainDesc>{{ event.description }}</ng-template>
-            </p>
-          </div>
-          <div class="event-action">
-            <button *ngIf="event.eventbriteId; else externalLink" type="button"
-                    class="btn btn-primary btn-tickets"
-                    [id]="'eb-trigger-' + event.eventbriteId"
-                    (click)="openTickets(event)">Comprar boletos</button>
-            <ng-template #externalLink>
-              <a [href]="event.ticketsUrl" target="_blank" rel="noopener" class="btn btn-primary btn-tickets">Comprar boletos</a>
-            </ng-template>
-          </div>
-        </div>
-        <div class="event-media" *ngIf="event.photos.length || event.videos?.length">
-          <figure class="media" *ngFor="let photo of event.photos">
+    <div class="events-grid">
+      <ng-container *ngFor="let event of events">
+        <article class="event-tile" *ngFor="let photo of event.photos; let i = index">
+          <div class="tile-media">
             <img [src]="photo" [alt]="event.title" loading="lazy">
-          </figure>
-          <figure class="media video" *ngFor="let video of event.videos">
-            <video [src]="video" controls playsinline preload="metadata"></video>
-          </figure>
-        </div>
-      </div>
+          </div>
+          <div class="tile-bar">
+            <span class="tile-venue">{{ event.venue }}</span>
+            <button type="button" class="btn-ticket"
+                    [attr.id]="event.eventbriteId && i === 0 ? 'eb-trigger-' + event.eventbriteId : null"
+                    (click)="openTickets(event)">Comprar ticket</button>
+          </div>
+          <div class="tile-meta">
+            <span>{{ event.city || event.venue }}</span>
+            <span>{{ event.dateShort || event.day }}</span>
+            <span>{{ event.time || '—' }}</span>
+          </div>
+        </article>
+      </ng-container>
     </div>
   </div>
+  <app-tickets-modal [url]="ticketsModalUrl" (closed)="ticketsModalUrl = null"></app-tickets-modal>
 </section>

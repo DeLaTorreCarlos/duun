@@ -1,0 +1,7 @@
+<div class="tickets-overlay" *ngIf="safeUrl" (click)="closed.emit()">
+  <div class="tickets-dialog" (click)="$event.stopPropagation()">
+    <button type="button" class="tickets-close" aria-label="Cerrar" (click)="closed.emit()">✕</button>
+    <iframe [src]="safeUrl" allow="payment *"></iframe>
+    <a class="tickets-fallback" [href]="rawUrl" target="_blank" rel="noopener" (click)="closed.emit()">¿No carga? Abrir en pestaña nueva ↗</a>
+  </div>
+</div>

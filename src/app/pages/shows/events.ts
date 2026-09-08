@@ -1,3 +1,9 @@
+export interface ArtistMedia {
+  name: string;
+  photos: string[];
+  videos?: string[];
+}
+
 export interface ShowEvent {
   id: number;
   day: string;
@@ -6,24 +12,32 @@ export interface ShowEvent {
   handle?: string;
   instagramUrl?: string;
   venue: string;
+  city?: string;
+  dateShort?: string;
+  time?: string;
   description: string;
   photos: string[];
   videos?: string[];
+  artists?: ArtistMedia[];
   ticketsUrl: string;
   eventbriteId?: string;
 }
 
 export const EVENTS: ShowEvent[] = [
   {
-    id: 260903,
-    day: '03',
+    id: 260910,
+    day: '10',
     month: 'SEPTIEMBRE',
-    title: 'ALANÍS + JOYCE',
+    title: 'DANNA GODEL + JULIA TOPOREK',
     venue: 'DUNA CLUB',
-    description: 'ALANÍS + JOYCE en DUNA CLUB. Una noche de música electrónica.',
-    photos: ['assets/alanis/ALANIS.png'],
-    videos: ['assets/alanis/ALANIS.mp4'],
-    ticketsUrl: 'https://www.eventbrite.com.mx/e/duna-club-tickets-1999334359891',
-    eventbriteId: '1999334359891'
+    city: 'Querétaro',
+    dateShort: '10/09',
+    time: '21:00',
+    description: 'DANNA GODEL + JULIA TOPOREK en DUNA CLUB. Una noche de música electrónica.',
+    photos: [
+      'assets/jueves-10-septiembre/danna-godel.jpg',
+      'assets/jueves-10-septiembre/julia-toporek.jpg'
+    ],
+    ticketsUrl: 'https://shows.link/duna-club-julia-toporek-danna-godel/tickets'
   }
 ];

@@ -15,13 +15,10 @@
     
     <!-- Navigation Links -->
     <ul class="nav-links" [class.active]="menuOpen">
-      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Home</a></li>
-      <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">Nosotros</a></li>
-      <!-- Oculto temporalmente
-      <li><a routerLink="/music" routerLinkActive="active" (click)="closeMenu()">Sets</a></li>
-      -->
-      <li><a routerLink="/shows" routerLinkActive="active" (click)="closeMenu()">Eventos</a></li>
-      <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contacto</a></li>
+      <li><a routerLink="/shows" routerLinkActive="active" (click)="closeMenu()">Programación</a></li>
+      <li><a routerLink="/" fragment="espacio" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">El espacio</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Dónde</a></li>
+      <li><a href="https://www.instagram.com/dunaclubmx" target="_blank" rel="noopener" class="nav-instagram" (click)="closeMenu()">Instagram <span class="arrow">↗</span></a></li>
     </ul>
   </div>
 </nav>

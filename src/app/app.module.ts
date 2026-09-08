@@ -10,6 +10,7 @@ import { MusicComponent } from './pages/music/music.component';
 import { ShowsComponent } from './pages/shows/shows.component';
 import { ShowDetailComponent } from './pages/shows/show-detail/show-detail.component';
 import { CheckoutComponent } from './pages/shows/checkout/checkout.component';
+import { TicketsModalComponent } from './pages/shows/tickets-modal/tickets-modal.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -23,6 +24,7 @@ import { FooterComponent } from './layout/footer/footer.component';
     ShowsComponent,
     ShowDetailComponent,
     CheckoutComponent,
+    TicketsModalComponent,
     ContactComponent,
     NavbarComponent,
     FooterComponent
