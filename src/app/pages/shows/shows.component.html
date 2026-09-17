@@ -15,7 +15,7 @@
             <span class="tile-venue">{{ event.venue }}</span>
             <button type="button" class="btn-ticket"
                     [attr.id]="event.eventbriteId && i === 0 ? 'eb-trigger-' + event.eventbriteId : null"
-                    (click)="openTickets(event)">Conseguir cortesía</button>
+                    (click)="openTickets(event)">{{ event.ctaLabel || 'Conseguir cortesía' }}</button>
           </div>
           <div class="tile-meta">
             <span>{{ event.city || event.venue }}</span>

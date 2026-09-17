@@ -21,6 +21,7 @@ export interface ShowEvent {
   artists?: ArtistMedia[];
   ticketsUrl: string;
   eventbriteId?: string;
+  ctaLabel?: string;
 }
 
 export const EVENTS: ShowEvent[] = [
@@ -35,7 +36,8 @@ export const EVENTS: ShowEvent[] = [
     time: '21:00',
     description: 'FERCO + ZONDA en DUNA CLUB. Una noche de música electrónica.',
     photos: ['assets/17-19septiembre/flyer-17-septiembre.jpg'],
-    ticketsUrl: 'https://shows.link/s/dn-clb-frc'
+    ticketsUrl: 'https://shows.link/s/dn-clb-frc',
+    ctaLabel: 'Comprar ticket'
   },
   {
     id: 260918,
@@ -61,6 +63,7 @@ export const EVENTS: ShowEvent[] = [
     time: '21:00',
     description: 'ARRAZATE + 1 TAPS en DUNA CLUB. Una noche de música electrónica.',
     photos: ['assets/17-19septiembre/flyer-19-septiembre.jpg'],
-    ticketsUrl: 'https://shows.link/s/dn-clb-arrzt'
+    ticketsUrl: 'https://shows.link/s/dn-clb-arrzt',
+    ctaLabel: 'Comprar ticket'
   }
 ];
