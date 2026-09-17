@@ -14,6 +14,9 @@ yarn-error.log
 # Herramientas locales (Node.js portátil)
 /.tools
 
+# Originales pesados de assets (no se despliegan)
+/.assets-originals
+
 # IDEs and editors
 .idea/
 .project
